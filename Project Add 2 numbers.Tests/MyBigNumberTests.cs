@@ -28,4 +28,18 @@ public class MyBigNumberTests
 
         Assert.Equal("102", result);
     }
+
+    [Fact]
+    public void Sum_OneMillionTimes()
+    {
+        MyBigNumber service = new(NullLogger<MyBigNumber>.Instance);
+        string result = string.Empty;
+
+        for (int i = 0; i < 1000000; i++)
+        {
+            result = service.Sum("123", "456");
+        }
+
+        Assert.Equal("579", result);
+    }
 }
